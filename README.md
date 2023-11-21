@@ -4,7 +4,7 @@ This repository contains the implementation of the paper:
 
 **NNG-Mix: Improving Semi-supervised Anomaly Detection with Pseudo-anomaly Generation**  
 [Hao Dong](https://sites.google.com/view/dong-hao/), Gaëtan Frusque, [Yue Zhao](https://viterbi-web.usc.edu/~yzhao010/), [Eleni Chatzi](https://chatzi.ibk.ethz.ch/about-us/people/prof-dr-eleni-chatzi.html) and [Olga Fink](https://people.epfl.ch/olga.fink?lang=en)  
-[Link]() to the arXiv version of the paper is available.
+[Link](https://arxiv.org/abs/2311.11961) to the arXiv version of the paper is available.
 
 We investigate improving semi-supervised anomaly detection performance from a novel viewpoint, by generating additional pseudo-anomalies based on the limited labeled anomalies and a large amount of unlabeled data. We introduce NNG-Mix, a simple and effective pseudo-anomaly generation algorithm, that optimally utilizes information from both labeled anomalies and unlabeled data.
 
