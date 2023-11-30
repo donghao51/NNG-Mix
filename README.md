@@ -16,3 +16,14 @@ Anomaly detection (AD) is essential in identifying rare and often critical event
 
 ## Code
 The code will be available soon.
+
+## Citation
+If you use our implementation in your academic work, please cite the corresponding [paper](https://arxiv.org/abs/2311.11961):
+```
+@article{dong2023nngmix,
+	author   = {Hao Dong and Ga{\"e}tan Frusque and Yue Zhao and Eleni Chatzi and Olga Fink},
+	title    = {{NNG-Mix: Improving Semi-supervised Anomaly Detection with Pseudo-anomaly Generation}},
+	journal  = {arXiv preprint arXiv:2311.11961},
+	year     = {2023},
+}
+```
