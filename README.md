@@ -3,7 +3,7 @@
 This repository contains the implementation of the paper:
 
 **NNG-Mix: Improving Semi-supervised Anomaly Detection with Pseudo-anomaly Generation**  
-[Hao Dong](https://sites.google.com/view/dong-hao/), Gaëtan Frusque, [Yue Zhao](https://viterbi-web.usc.edu/~yzhao010/), [Eleni Chatzi](https://chatzi.ibk.ethz.ch/about-us/people/prof-dr-eleni-chatzi.html) and [Olga Fink](https://people.epfl.ch/olga.fink?lang=en)  
+[Hao Dong](https://sites.google.com/view/dong-hao/), [Gaëtan Frusque](https://frusquegaetan.github.io/), [Yue Zhao](https://viterbi-web.usc.edu/~yzhao010/), [Eleni Chatzi](https://chatzi.ibk.ethz.ch/about-us/people/prof-dr-eleni-chatzi.html) and [Olga Fink](https://people.epfl.ch/olga.fink?lang=en)  
 [Link]() to the arXiv version of the paper is available.
 
 We investigate improving semi-supervised anomaly detection performance from a novel viewpoint, by generating additional pseudo-anomalies based on the limited labeled anomalies and a large amount of unlabeled data. We introduce NNG-Mix, a simple and effective pseudo-anomaly generation algorithm, that optimally utilizes information from both labeled anomalies and unlabeled data.
@@ -11,8 +11,61 @@ We investigate improving semi-supervised anomaly detection performance from a no
 <img src="pics/NNG-Mix.png" width="800">
 Nearest Neighbor Gaussian Mixup (NNG-Mix) makes good use of information from both labeled anomalies and unlabeled data to generate pseudo-anomalies effectively.
 
-## Abstract
-Anomaly detection (AD) is essential in identifying rare and often critical events in complex systems, finding applications in fields such as network intrusion detection, financial fraud detection, and fault detection in infrastructure and industrial systems. While AD is typically treated as an unsupervised learning task due to the high cost of label annotation, it is more practical to assume access to a small set of labeled anomaly samples from domain experts, as is the case for semi-supervised anomaly detection. Semi-supervised and supervised approaches can leverage such labeled data, resulting in improved performance. In this paper, rather than proposing a new semi-supervised or supervised approach for AD, we introduce a novel algorithm for generating additional pseudo-anomalies on the basis of the limited labeled anomalies and a large volume of unlabeled data. This serves as an augmentation to facilitate the detection of new anomalies. Our proposed algorithm, named Nearest Neighbor Gaussian Mixup (NNG-Mix), efficiently integrates information from both labeled and unlabeled data to generate pseudo-anomalies. We compare the performance of this novel algorithm with commonly applied augmentation techniques, such as Mixup and Cutout. We evaluate NNG-Mix by training various existing semi-supervised and supervised anomaly detection algorithms on the original training data along with the generated pseudo-anomalies. Through extensive experiments on 57 benchmark datasets in ADBench, reflecting different data types, we demonstrate that NNG-Mix outperforms other data augmentation methods. It yields significant performance improvements compared to the baselines trained exclusively on the original training data. Notably, NNG-Mix yields up to 16.4%, 8.8%, and 8.0% improvements on Classical, CV, and NLP datasets in ADBench.
+## Dataset
+Download `Classical`, `CV_by_ResNet18`, and `NLP_by_BERT` from [ADBench](https://github.com/Minqi824/ADBench/tree/main/adbench/datasets) and put under `datasets/` folder.
 
 ## Code
-The code will be available soon.
+
+Change `--ratio 1.0` to `--ratio 0.5` or `--ratio 0.1` for training with 5% or 1% available labeled anomalies.
+### Classical Dataset
+#### Train on Classical datasets with 10% available labeled anomalies using DeepSAD
+```
+python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg DeepSAD --dataset Classical --nn_k 10 --nn_k_anomaly 10 --nn_mix_gaussian --nn_mix_gaussian_std 0.01 --mixup_alpha 0.2 --mixup_beta 0.2
+```
+
+#### Train on Classical datasets with 10% available labeled anomalies using MLP
+```
+python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg MLP --dataset Classical --nn_k 10 --nn_k_anomaly 10 --nn_mix_gaussian --nn_mix_gaussian_std 0.01 --mixup_alpha 0.2 --mixup_beta 0.2
+```
+
+### CV Dataset
+#### Train on CV with 10% available labeled anomalies using DeepSAD
+```
+python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg DeepSAD --dataset CV --nn_k 10 --nn_k_anomaly 10 --nn_mix_gaussian --nn_mix_gaussian_std 0.01 --mixup_alpha 0.2 --mixup_beta 0.2
+```
+
+#### Train on CV with 10% available labeled anomalies using MLP
+```
+python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg MLP --dataset CV --nn_k 10 --nn_k_anomaly 10 --nn_mix_gaussian --nn_mix_gaussian_std 0.3 --mixup_alpha 0.2 --mixup_beta 0.2
+```
+
+
+### NLP Dataset
+#### Train on NLP with 10% available labeled anomalies using DeepSAD
+```
+python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg DeepSAD --dataset NLP --nn_k 10 --nn_k_anomaly 10 --nn_mix_gaussian --nn_mix_gaussian_std 0.01 --mixup_alpha 0.2 --mixup_beta 0.2
+```
+
+#### Train on NLP with 10% available labeled anomalies using MLP
+```
+python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg MLP --dataset NLP --nn_k 10 --nn_k_anomaly 10 --nn_mix_gaussian --nn_mix_gaussian_std 0.3 --mixup_alpha 0.2 --mixup_beta 0.2
+```
+
+## Contact
+If you have any questions, please send an email to donghaospurs@gmail.com
+
+## Citation
+
+If you find our work useful in your research please consider citing our paper:
+
+```
+@article{dong2023nngmix,
+	author   = {Hao Dong and Ga{\"e}tan Frusque and Yue Zhao and Eleni Chatzi and Olga Fink},
+	title    = {{NNG-Mix: Improving Semi-supervised Anomaly Detection with Pseudo-anomaly Generation}},
+	journal  = {arXiv preprint arXiv:2311.11961},
+	year     = {2023},
+}
+```
+## Acknowledgement
+
+Many thanks to the excellent open-source projects [ADBench](https://github.com/Minqi824/ADBench).
