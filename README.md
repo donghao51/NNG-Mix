@@ -18,6 +18,10 @@ Download `Classical`, `CV_by_ResNet18`, and `NLP_by_BERT` from [ADBench](https:/
 
 Change `--ratio 1.0` to `--ratio 0.5` or `--ratio 0.1` for training with 5% or 1% available labeled anomalies.
 ### Classical Dataset
+<details>
+<summary>Click for details...</summary>
+
+
 #### Train on Classical datasets with 10% available labeled anomalies using DeepSAD
 ```
 python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg DeepSAD --dataset Classical --nn_k 10 --nn_k_anomaly 10 --nn_mix_gaussian --nn_mix_gaussian_std 0.01 --mixup_alpha 0.2 --mixup_beta 0.2
@@ -28,7 +32,13 @@ python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg DeepSAD --dataset 
 python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg MLP --dataset Classical --nn_k 10 --nn_k_anomaly 10 --nn_mix_gaussian --nn_mix_gaussian_std 0.01 --mixup_alpha 0.2 --mixup_beta 0.2
 ```
 
+</details>
+
 ### CV Dataset
+<details>
+<summary>Click for details...</summary>
+
+
 #### Train on CV with 10% available labeled anomalies using DeepSAD
 ```
 python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg DeepSAD --dataset CV --nn_k 10 --nn_k_anomaly 10 --nn_mix_gaussian --nn_mix_gaussian_std 0.01 --mixup_alpha 0.2 --mixup_beta 0.2
@@ -39,8 +49,14 @@ python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg DeepSAD --dataset 
 python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg MLP --dataset CV --nn_k 10 --nn_k_anomaly 10 --nn_mix_gaussian --nn_mix_gaussian_std 0.3 --mixup_alpha 0.2 --mixup_beta 0.2
 ```
 
+</details>
+
 
 ### NLP Dataset
+<details>
+<summary>Click for details...</summary>
+
+
 #### Train on NLP with 10% available labeled anomalies using DeepSAD
 ```
 python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg DeepSAD --dataset NLP --nn_k 10 --nn_k_anomaly 10 --nn_mix_gaussian --nn_mix_gaussian_std 0.01 --mixup_alpha 0.2 --mixup_beta 0.2
@@ -50,6 +66,8 @@ python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg DeepSAD --dataset 
 ```
 python NNG_Mix.py --ratio 1.0 --method nng_mix --seed 0 --alg MLP --dataset NLP --nn_k 10 --nn_k_anomaly 10 --nn_mix_gaussian --nn_mix_gaussian_std 0.3 --mixup_alpha 0.2 --mixup_beta 0.2
 ```
+
+</details>
 
 ## Contact
 If you have any questions, please send an email to donghaospurs@gmail.com
@@ -66,6 +84,11 @@ If you find our work useful in your research please consider citing our paper:
 	year     = {2023},
 }
 ```
+
+## Related Projects
+
+[MultiOOD](https://github.com/donghao51/MultiOOD): Scaling Out-of-Distribution Detection for Multiple Modalities
+
 ## Acknowledgement
 
 Many thanks to the excellent open-source projects [ADBench](https://github.com/Minqi824/ADBench).
